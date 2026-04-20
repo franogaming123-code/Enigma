@@ -1573,14 +1573,22 @@
       }
     }
 
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
     function renderMenu(items, container) {
       const html = items
         .filter(item => item.Synlig === 'ja')
         .map(item => `
           <div class="menu-card">
-            <h3>${item.Navn}</h3>
-            <p>${item.Beskrivelse}</p>
-            <div class="price-tag">${parseInt(String(item.Pris).replace(/[^0-9]/g, '')) || item.Pris} KR</div>
+            <h3>${escapeHtml(item.Navn)}</h3>
+            <p>${escapeHtml(item.Beskrivelse)}</p>
+            <div class="price-tag">${parseInt(String(item.Pris).replace(/[^0-9]/g, '')) || escapeHtml(item.Pris)} KR</div>
           </div>
         `)
         .join('');
