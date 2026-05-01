@@ -6,7 +6,6 @@
   <title>ENIGMA – Cocktail Bar Aarhus</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'%3E%3C!-- glass liquid fill --%3E%3Crect x='1' y='2' width='14' height='1' fill='%23FF3020'/%3E%3Crect x='2' y='3' width='12' height='1' fill='%23FF3020'/%3E%3Crect x='3' y='4' width='10' height='1' fill='%23FF3020'/%3E%3Crect x='4' y='5' width='8' height='1' fill='%23FF3020'/%3E%3Crect x='5' y='6' width='6' height='1' fill='%23FF3020'/%3E%3Crect x='6' y='7' width='4' height='1' fill='%23FF3020'/%3E%3C!-- stem --%3E%3Crect x='7' y='8' width='2' height='4' fill='%23FF3020'/%3E%3C!-- base --%3E%3Crect x='4' y='12' width='8' height='2' fill='%23FF3020'/%3E%3C!-- highlight --%3E%3Crect x='2' y='3' width='2' height='3' fill='%23FF7060' opacity='0.7'/%3E%3C!-- cherry --%3E%3Crect x='11' y='0' width='3' height='3' fill='%23CC1010'/%3E%3Crect x='12' y='0' width='1' height='1' fill='%23FF4040'/%3E%3C!-- cherry stem --%3E%3Crect x='10' y='1' width='1' height='1' fill='%23883300'/%3E%3C/svg%3E" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fredoka+One&family=Press+Start+2P&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
     @font-face {
       font-family: 'VisualMagnets';
@@ -987,7 +986,9 @@
         </a>
       </div>
 
-      <div id="enigma-map" class="reveal reveal-right"></div>
+      <div id="enigma-map" class="reveal reveal-right">
+        <iframe width="100%" height="100%" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJLeiQOgA_TEYRJ24buKpbypo&key=AIzaSyBiqmrfaSfXFGmKpfo6jWozcNejE6yTmMw"></iframe>
+      </div>
     </div>
   </section>
 
@@ -1457,20 +1458,6 @@
     <p style="margin-top: 0.8rem; opacity: 0.35; font-size: 0.7rem;">Site created by Francesco Pertoldi Bianchi and Marcus Sejer Nørgård</p>
   </footer>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script>
-    const map = L.map('enigma-map', { zoomControl: true, scrollWheelZoom: false }).setView([56.1547, 10.2044], 17);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-      maxZoom: 19,
-    }).addTo(map);
-    const icon = L.divIcon({
-      html: '<div style="background:var(--red);width:14px;height:14px;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.4)"></div>',
-      className: '', iconAnchor: [7, 7],
-    });
-    L.marker([56.1547, 10.2044], { icon }).addTo(map)
-      .bindPopup('<b>ENIGMA</b><br>Frederiksgade 58, Aarhus C').openPopup();
-  </script>
 
   <script>
     // ── HAMBURGER MENU ──
